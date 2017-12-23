@@ -14,7 +14,7 @@ const router =
 	{
 		pageId: 'pokemon-page',
 		linkId: 'pokemon-link'
-	}
+	},
 	'#/resume':
 	{
 		pageId: 'resume-page',
