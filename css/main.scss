@@ -1,3 +1,19 @@
+.nav
+{
+	margin-bottom: 50px;
+	display: flex;
+}
+
+.nav-link
+{
+	margin-right: 16px;
+}
+
+.nav-link:hover
+{
+	cursor: pointer;
+}
+
 .board
 {
 	width: 512px;

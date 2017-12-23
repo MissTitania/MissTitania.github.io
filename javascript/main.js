@@ -1,3 +1,71 @@
+const router =
+{
+	'#/':
+	{
+		pageId: 'about-page',
+		linkId: 'about-link'
+	},
+	'#/othello':
+	{
+		pageId: 'othello-page',
+		linkId: 'othello-link'
+	},
+	'#/pokemon':
+	{
+		pageId: 'pokemon-page',
+		linkId: 'pokemon-link'
+	}
+	'#/resume':
+	{
+		pageId: 'resume-page',
+		linkId: 'resume-link'
+	}
+};
+
+const objectIds = Object.keys(router).map(key => router[key].pageId);
+
+function hashChange(hash)
+{
+	window.location.hash = hash;
+}
+
+function hashHandler()
+{
+	const hash = window.location.hash;
+	const route = router[hash];
+	if (!router.hasOwnProperty(hash))
+		window.location.hash = '#/';
+	else
+	{
+		const pageId = router[hash].pageId;
+		objectIds.forEach(id =>
+		{
+			const domElement = document.getElementById(id);
+			if (id === pageId)
+				domElement.style.display = 'block';
+			else
+				domElement.style.display = 'none';
+		});
+	}
+}
+
+function addEvents()
+{
+	Object.keys(router).forEach(hash =>
+	{
+		let ob = router[hash];
+		const domEl = document.getElementById(ob.linkId);
+		domEl.addEventListener('click', () => hashChange(hash));
+	});
+}
+
+window.addEventListener("hashchange", hashHandler, false);
+window.addEventListener("DOMContentLoaded", () =>
+{
+	addEvents();
+	hashHandler();
+}, false);
+
 blackPieces = [];
 whitePieces = [];
 for(let i = 0; i < 64; ++i)
