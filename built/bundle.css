@@ -1,0 +1,66 @@
+.nav {
+  margin-bottom: 50px;
+  display: flex; }
+
+.nav-link {
+  margin-right: 16px;
+  text-align: center; }
+
+.nav-link:hover {
+  cursor: pointer; }
+
+.board {
+  width: 512px;
+  height: 512px;
+  margin: 5px;
+  border: 2px inset #010;
+  overflow: hidden; }
+
+.row {
+  float: left; }
+
+.space {
+  transition: background-color ease-out .32s;
+  width: 60px;
+  height: 60px;
+  border: 2px outset #000;
+  background-color: #0E0;
+  float: left; }
+
+.space.legal-move:hover {
+  transition: background-color ease-in .32s;
+  background-color: #0AF; }
+
+.space.black-occupied:after,
+.space.white-occupied:after {
+  transition: background-color ease-in-out .32s;
+  content: "";
+  display: inline-block;
+  width: 88%;
+  height: 88%;
+  border-radius: 50%;
+  float: left;
+  margin-left: 6%;
+  margin-top: 6%; }
+
+.space.black-occupied:after {
+  background-color: #002; }
+
+.space.white-occupied:after {
+  background-color: #FFF; }
+
+span {
+  margin: 5px;
+  font-size: 18px;
+  width: 253px;
+  display: inline-block; }
+
+#black-counter {
+  text-align: left; }
+
+#white-counter {
+  text-align: right; }
+
+.resume-object {
+  width: 400px;
+  height: 600px; }
