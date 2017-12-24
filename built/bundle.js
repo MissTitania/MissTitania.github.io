@@ -133,22 +133,27 @@ window.addEventListener("DOMContentLoaded", () =>
 {
 	addEvents();
 	hashHandler();
+	resetGame();
 }, false);
 
-blackPieces = [];
-whitePieces = [];
-for(let i = 0; i < 64; ++i)
+
+function resetGame()
 {
-	blackPieces[i] = false;
-	whitePieces[i] = false;
+	blackPieces = [];
+	whitePieces = [];
+	for(let i = 0; i < 64; ++i)
+	{
+		blackPieces[i] = false;
+		whitePieces[i] = false;
+	}
+	blackPieces[27] = true;
+	blackPieces[36] = true;
+	whitePieces[28] = true;
+	whitePieces[35] = true;
+	state = 0;
+	legalMoves = getWhiteLegalMoves(blackPieces, whitePieces);
+	syncBoard();
 }
-blackPieces[27] = true;
-blackPieces[36] = true;
-whitePieces[28] = true;
-whitePieces[35] = true;
-state = 0;
-legalMoves = getWhiteLegalMoves(blackPieces, whitePieces);
-syncBoard();
 
 function syncBoard()
 {
