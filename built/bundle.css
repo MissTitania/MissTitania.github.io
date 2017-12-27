@@ -77,22 +77,29 @@ p a:hover {
   transition: color .3s;
   color: #003BFF; }
 
-.board {
-  width: 512px;
-  height: 512px;
-  margin: 5px;
+#othello-game {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 74vh;
+  margin: 5px 12px 5px 5px;
+  float: left; }
+
+#othello-board {
+  width: 74vh;
+  height: 74vh;
+  margin: 4px 0;
+  box-sizing: border-box;
   border: 2px solid #000;
   overflow: hidden;
   background: #0B0 url("https://s14.postimg.org/z2ofrjrxd/Othello_Board.jpg") no-repeat center;
   background-size: cover; }
 
-.row {
-  float: left; }
-
 .space {
   transition: background-color ease-out .32s;
-  width: 60px;
-  height: 60px;
+  width: 12.5%;
+  height: 12.5%;
+  box-sizing: border-box;
   border: 2px solid #000;
   background-color: rgba(0, 170, 255, 0);
   float: left;
@@ -105,7 +112,7 @@ p a:hover {
 
 .space.occupied:before,
 .space.occupied:after {
-  transition: transform .35s linear;
+  transition: transform .3s linear;
   content: "";
   display: block;
   width: 90%;
@@ -135,17 +142,34 @@ p a:hover {
 .space.occupied.white:after {
   transform: rotate3d(1, -1, 0, 0deg); }
 
-#othello-page span {
-  margin: 5px;
-  font-size: 18px;
-  width: 253px;
-  display: inline-block; }
+#othello-reset {
+  transition: all .15s linear;
+  position: relative;
+  background: #201E1E;
+  border: 1px solid #00406D;
+  box-shadow: 1px 2px 6px #004677;
+  color: #43A3F7;
+  left: 0;
+  top: 0;
+  border-radius: 5px;
+  font-size: 14px;
+  outline: none; }
 
-#black-counter {
-  text-align: left; }
+#othello-reset:hover {
+  transition: all .2s linear;
+  background: #121111;
+  border: 1px solid #003D68;
+  box-shadow: -1px -1px 2px #0088E7;
+  color: #98CDFB;
+  left: 2px;
+  top: 3px; }
 
-#white-counter {
-  text-align: right; }
+#othello-feedback {
+  display: flex;
+  justify-content: space-between; }
+
+#othello-feedback span {
+  font-size: 18px; }
 
 .resume-object {
   width: 430px;

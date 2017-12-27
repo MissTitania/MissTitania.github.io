@@ -52,6 +52,7 @@ function addEvents()
 	{
 		document.getElementById(router[hash].linkId).addEventListener('click', () => hashChange(hash));
 	});
+	document.getElementById("othello-reset").addEventListener('click', resetGame);
 }
 
 window.addEventListener("hashchange", hashHandler, false);
@@ -115,7 +116,7 @@ function syncBoard()
 				else
 				{
 					state = 1;
-					setTimeout(botMove, 350);
+					setTimeout(botMove, 400);
 				}
 				syncBoard();
 			};
@@ -128,6 +129,16 @@ function syncBoard()
 	}
 	document.getElementById("black-counter").innerHTML = "Black: " + blackCount;
 	document.getElementById("white-counter").innerHTML = "White: " + whiteCount;
+	if(state == 0)
+		document.getElementById("state-text").innerHTML = "Your move";
+	else if(state == 1)
+		document.getElementById("state-text").innerHTML = "Thinking...";
+	else if(state == 2 && blackCount > whiteCount)
+		document.getElementById("state-text").innerHTML = "You lose!";
+	else if(state == 2 && blackCount < whiteCount)
+		document.getElementById("state-text").innerHTML = "You win!";
+	else if(state == 2 && blackCount == whiteCount)
+		document.getElementById("state-text").innerHTML = "Tie game!";
 }
 
 function botMove()
@@ -140,7 +151,7 @@ function botMove()
 		if(legalMoves.every(x => !x))
 			state = 2;
 		else
-			setTimeout(botMove, 350);
+			setTimeout(botMove, 400);
 	}
 	else
 		state = 0;
