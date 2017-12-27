@@ -22,8 +22,6 @@ const router =
 	}
 };
 
-const objectIds = Object.keys(router).map(key => router[key].pageId);
-
 function hashChange(hash)
 {
 	window.location.hash = hash;
@@ -32,13 +30,12 @@ function hashChange(hash)
 function hashHandler()
 {
 	const hash = window.location.hash;
-	const route = router[hash];
 	if (!router.hasOwnProperty(hash))
 		window.location.hash = '#/';
 	else
 	{
 		const pageId = router[hash].pageId;
-		objectIds.forEach(id =>
+		Object.keys(router).map(key => router[key].pageId).forEach(id =>
 		{
 			const domElement = document.getElementById(id);
 			if (id === pageId)
@@ -53,9 +50,7 @@ function addEvents()
 {
 	Object.keys(router).forEach(hash =>
 	{
-		let ob = router[hash];
-		const domEl = document.getElementById(ob.linkId);
-		domEl.addEventListener('click', () => hashChange(hash));
+		document.getElementById(router[hash].linkId).addEventListener('click', () => hashChange(hash));
 	});
 }
 
@@ -94,13 +89,13 @@ function syncBoard()
 	{
 		if(blackPieces[i])
 		{
-			document.getElementById("cell-" + i).className = "space black-occupied";
+			document.getElementById("cell-" + i).className = "space occupied black";
 			document.getElementById("cell-" + i).onclick = function(e) {};
 			++blackCount;
 		}
 		else if(whitePieces[i])
 		{
-			document.getElementById("cell-" + i).className = "space white-occupied";
+			document.getElementById("cell-" + i).className = "space occupied white";
 			document.getElementById("cell-" + i).onclick = function(e) {};
 			++whiteCount;
 		}
@@ -120,7 +115,7 @@ function syncBoard()
 				else
 				{
 					state = 1;
-					setTimeout(botMove, 300);
+					setTimeout(botMove, 350);
 				}
 				syncBoard();
 			};
@@ -145,7 +140,7 @@ function botMove()
 		if(legalMoves.every(x => !x))
 			state = 2;
 		else
-			setTimeout(botMove, 300);
+			setTimeout(botMove, 350);
 	}
 	else
 		state = 0;
