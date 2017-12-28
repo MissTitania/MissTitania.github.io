@@ -171,6 +171,13 @@ p a:hover {
 #othello-feedback span {
   font-size: 18px; }
 
+/*.pokemon img
+{
+	width: 40vh;
+	height: 40vh;
+}*/
 .resume-object {
-  width: 430px;
-  height: 556px; }
+  display: block;
+  width: 95%;
+  height: 1075px;
+  margin: auto; }
