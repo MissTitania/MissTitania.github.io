@@ -13,18 +13,21 @@
 		<meta name="theme-color" content="#ffffff">
 	</head>
 	<body>
-		<div class="nav">
-			<div class="nav-link" id="about-link">
-				About Me
-			</div>
-			<div class="nav-link" id="othello-link">
-				Othello
-			</div>
-			<div class="nav-link" id="pokemon-link">
-				Pokemon
-			</div>
-			<div class="nav-link" id="resume-link">
-				Resume
+		<div id="top-bar">
+			<a href="mailto:titania@emmons.mobi?Subject=Github%20Contact%20Referral" target="_top"><div id="site-logo"></div></a>
+			<div class="nav">
+				<div class="nav-link" id="about-link">
+					About Me
+				</div>
+				<div class="nav-link" id="othello-link">
+					Othello
+				</div>
+				<div class="nav-link" id="pokemon-link">
+					Pokemon
+				</div>
+				<div class="nav-link" id="resume-link">
+					Resume
+				</div>
 			</div>
 		</div>
 
@@ -59,12 +62,33 @@
 			</div>
 
 			<div class="pokemon" id="pokemon-page">
-				<p>The server of <a href="https://pokemonshowdown.com">Pokemon Showdown</a> (a community for competitively-minded Pokemon battling as a strategy game) called Azure desperately needed an interface remodeling.  This was for reasons of readability, aesthetics, and ease of use.  They enlisted my help to remake their CSS for this purpose.  The catch?  Esoteric rules in their license agreement with the larger Showdown community allow them only to modify server-side code.  They must use the same client as the rest of Pokemon Showdown, verbatim.  My challenge is to redo the interface without modifying either the underlying JS code or the DOM.  Spicy!</p>
-				<div id="before-after-box">
-					<img alt="Before picture 1" style="width: 21vw; height: 21vw;">
-					<img src="http://images.clipartpanda.com/arrow-clip-art-red-arrow-large.png" alt="Arrow" style="width: 21vw; height: 21vw;">
-					<img alt="After picture 1" style="width: 21vw; height: 21vw;">
+				<p>The server of <a href="https://pokemonshowdown.com">Pokemon Showdown</a> (a community for competitively-minded Pokemon battling as a strategy game) called Azure desperately needed an interface remodeling.  This was for reasons of readability, aesthetics, and ease of use.  They hired me to remake their CSS for this purpose.  The catch?  Esoteric rules in their license agreement with the larger Showdown community allow them only to modify server-side code.  They must use the same client as the rest of Pokemon Showdown, verbatim.  My challenge is to redo the interface without modifying either the underlying JS code or the DOM.  Spicy!  The result contained a great deal of animation, both for a sexier product and intuitive identification of what things on screen were even control elements, so for an authentic experience I encourage you to try injecting <a href="https://github.com/MissTitania/AzureCSSOverhaul">the style sheets</a> yourself and see it all in action!  Still pictures can only tell so much :(</p>
+				<p>For starters, PS is a battle-based entity, so let's cut right to the chase with the battle interface:</p>
+				<div class="before-after-box">
+					<div id="before-1"></div>
+					<div class="arrow"></div>
+					<div id="after-1"></div>
 				</div>
+				<p>Moving the team and name display sidebars up top creates a lot more space to show off all the actual battle!  The graphical space in the center is where all the attack, terrain, and weather animations play out, so playing that up easily improves the user experience.  But the biggest gain of all isn't even visible in the picture.  See that little notch at the bottom of the re-designed battlefield?  As moves are made, all of them get called out by trainers in speech bubbles right there.  Beforehand all these actions merely got dumped in a chat log elsewhere.  Because that's what every little kid wants in his Pokemon experience: to scroll back through textual data dumps to see what moves just executed.  This is the 21st century; we should be past that kind of thing.  Next up is private conversations:</p>
+				<div class="before-after-box">
+					<div id="before-2"></div>
+					<div class="arrow"></div>
+					<div id="after-2"></div>
+				</div>
+				<p>As you can see, even short conversations few in number quickly overwhelm the available space for these things.  That main menu on the left doesn't do a whole lot except for when you're queueing up or configuring your team for battle; it just eats up our direct message space.  Given that, it makes sense to have it be retractable.  Then we can have luxurious wide conversations and battle challenges.  And the new DM boxes offer a lot of smart benefits, from twinkling to display when you have notifications to sliding into and out of existence with more intelligent vertical sizing and minimization.</p>
+				<div class="before-after-box">
+					<div id="before-3"></div>
+					<div class="arrow"></div>
+					<div id="after-3"></div>
+				</div>
+				<p>Here's what that main menu looks like when we reach to slide it out.  It centers properly and comes out further than before, both to take advantage of all the extra space we get by having it slide out over top of private conversations.  And perhaps a bit bafflingly... the main menu is finally <i>just one</i> menu.  Instead of three.  Why those features pertaining to the one purpose were broken up is hard to figure.  And of course because it's a server about battling, now the battle-related options are adorned with slick mouseover animations and flashy icons on mouseover.  Can't skimp on the action!</p>
+				<div class="before-after-box">
+					<div id="before-4"></div>
+					<div class="arrow"></div>
+					<div id="after-4"></div>
+				</div>
+				<p>Here's a public chatroom.  All the conversation was punctuated with various polls, server declares, tournament updates, and more, definitely to the point of excess.  With some reformatting and opacity usage, all these things can be made much less intrusive so as not to break up discussion.  As a bonus, now the server mascot Pokemon (as redrawn by me) can be seen without so much junk on top!  You may notice the motif throughout all these shots of darkening the color scheme dramatically and only using bright colors for display of important content.  Not only does it make extended use considerably easier on the eyes, it also naturally guides your gaze to where the real information is located.</p>
+				<p>There's quite a lot more in these same motivational veins scattered across every possible interface component, so I do encourage you to check it out by injecting the CSS yourself.  Seeing all the newly-animated components and using it yourself makes for an experience still images cannot tell.  And if you do, don't forget it all happened without ability to change an ounce of Javascript or the DOM!</p>
 			</div>
 
 			<div class="resume" id="resume-page">

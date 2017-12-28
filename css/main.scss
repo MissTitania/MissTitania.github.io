@@ -8,12 +8,36 @@ body
 	overflow: hidden;
 }
 
+#top-bar
+{
+	height: 10vh;
+	min-height: 10vh;
+}
+
+#site-logo
+{
+	transition: background-position .15s linear;
+	background: url("https://image.ibb.co/gqsDWb/Site_Logo.png") no-repeat;
+	background-size: cover;
+	background-position: 0 5%;
+	height: 10vh;
+	width: 60vh;
+	overflow: hidden;
+	float: left;
+}
+
+#site-logo:hover
+{
+	background-position: 0 110%;
+	cursor: pointer;
+}
+
 #content
 {
 	display: flex;
 	width: 100%;
-	height: 91vh;
-	min-height: 91vh;
+	height: 90vh;
+	min-height: 90vh;
 }
 
 #me-picture
@@ -43,8 +67,7 @@ body
 	display: flex;
 	justify-content: flex-end;
 	align-items: flex-end;
-	height: 9vh;
-	min-height: 9vh;
+	height: 10vh;
 }
 
 .nav-link
@@ -221,16 +244,83 @@ p a:hover
 	font-size: 18px;
 }
 
-/*.pokemon img
+.before-after-box
 {
-	width: 40vh;
-	height: 40vh;
-}*/
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
+}
+
+.before-after-box:before
+{
+	content: "";
+	display: block;
+	padding-top: 34%;
+}
+
+.before-after-box div
+{
+	flex: 1 1 33%;
+}
+
+.before-after-box .arrow
+{
+	background: url("http://images.clipartpanda.com/arrow-clip-art-red-arrow-large.png") no-repeat center;
+	background-size: contain;
+}
+
+.before-after-box #before-1
+{
+	background: url("https://s17.postimg.org/xdi2g2mm7/Before_1.png") no-repeat center;
+	background-size: contain;
+}
+
+.before-after-box #after-1
+{
+	background: url("https://s17.postimg.org/4nv6jfqbz/After_1.png") no-repeat center;
+	background-size: contain;
+}
+
+.before-after-box #before-2
+{
+	background: url("https://s17.postimg.org/db8dxvbzz/Before_2.png") no-repeat center;
+	background-size: contain;
+}
+
+.before-after-box #after-2
+{
+	background: url("https://s17.postimg.org/43g5h6s33/After_2.png") no-repeat center;
+	background-size: contain;
+}
+
+.before-after-box #before-3
+{
+	background: url("https://s17.postimg.org/eq9ymni8v/Before_3.png") no-repeat center;
+	background-size: contain;
+}
+
+.before-after-box #after-3
+{
+	background: url("https://s17.postimg.org/keg9dkwvz/After_3.png") no-repeat center;
+	background-size: contain;
+}
+
+.before-after-box #before-4
+{
+	background: url("https://s17.postimg.org/lthu2bden/Before_4.png") no-repeat center;
+	background-size: contain;
+}
+
+.before-after-box #after-4
+{
+	background: url("https://s17.postimg.org/yyxc7uu9b/After_4.png") no-repeat center;
+	background-size: contain;
+}
 
 .resume-object
 {
 	display: block;
-	width: 95%;
+	width: 96%;
 	height: 1075px;
 	margin: auto;
 }
