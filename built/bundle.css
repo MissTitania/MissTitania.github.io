@@ -24,30 +24,6 @@ body {
   background-position: 0 110%;
   cursor: pointer; }
 
-#content {
-  display: flex;
-  width: 100%;
-  height: 90vh;
-  min-height: 90vh; }
-
-#me-picture {
-  border-top: 3px solid #000;
-  background: #07F url("https://s14.postimg.org/eygxghtk1/image.jpg") no-repeat center;
-  background-size: cover;
-  flex: 0 0 68vh; }
-
-.about,
-.othello,
-.pokemon,
-.resume {
-  padding: 10px;
-  border-top: 3px solid #000;
-  border-left: 3px solid #000;
-  background: rgba(0, 0, 0, 0.55);
-  color: #FFF;
-  flex: 1 1 65%;
-  overflow: auto; }
-
 .nav {
   display: flex;
   justify-content: flex-end;
@@ -79,6 +55,30 @@ body {
   font-weight: 900;
   letter-spacing: 2px;
   color: #E1F6FD; }
+
+#content {
+  display: flex;
+  width: 100%;
+  height: 90vh;
+  min-height: 90vh; }
+
+#me-picture {
+  border-top: 3px solid #000;
+  background: #07F url("https://s14.postimg.org/eygxghtk1/image.jpg") no-repeat center;
+  background-size: cover;
+  flex: 0 0 68vh; }
+
+.about,
+.othello,
+.pokemon,
+.resume {
+  padding: 10px;
+  border-top: 3px solid #000;
+  border-left: 3px solid #000;
+  background: rgba(0, 0, 0, 0.55);
+  color: #FFF;
+  flex: 1 1 65%;
+  overflow: auto; }
 
 p {
   font-size: 17px;

@@ -1,0 +1,61 @@
+#top-bar
+{
+	height: 10vh;
+	min-height: 10vh;
+}
+
+#site-logo
+{
+	transition: background-position .15s linear;
+	background: url("https://image.ibb.co/gqsDWb/Site_Logo.png") no-repeat;
+	background-size: cover;
+	background-position: 0 5%;
+	height: 10vh;
+	width: 60vh;
+	overflow: hidden;
+	float: left;
+}
+
+#site-logo:hover
+{
+	background-position: 0 110%;
+	cursor: pointer;
+}
+
+.nav
+{
+	display: flex;
+	justify-content: flex-end;
+	align-items: flex-end;
+	height: 10vh;
+}
+
+.nav-link
+{
+	transition: all .3s;
+	padding: 12px;
+	border-top: 2px solid #43A3F7;
+	border-right: 2px solid #43A3F7;
+	border-left: 2px solid #43A3F7;
+	border-bottom: none;
+	border-radius: 10px 10px 0 0;
+	text-align: center;
+	background: #201E1E;
+	text-shadow: 0 0 2px #000;
+	box-shadow: 0 0 2px #000;
+	font-weight: 100;
+	letter-spacing: 0;
+	color: #43A3F7;
+	flex: 0 1 85px;
+}
+
+.nav-link:hover
+{
+	cursor: pointer;
+	background: rgba(32, 30, 30, 0);
+	border-color: rgba(67, 163, 247, 0);
+	box-shadow: 0 0 0 #000;
+	font-weight: 900;
+	letter-spacing: 2px;
+	color: #E1F6FD;
+}
