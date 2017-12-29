@@ -60,172 +60,12 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
 /***/ (function(module, exports) {
-
-const router =
-{
-	'#/':
-	{
-		pageId: 'about-page',
-		linkId: 'about-link'
-	},
-	'#/othello':
-	{
-		pageId: 'othello-page',
-		linkId: 'othello-link'
-	},
-	'#/pokemon':
-	{
-		pageId: 'pokemon-page',
-		linkId: 'pokemon-link'
-	},
-	'#/resume':
-	{
-		pageId: 'resume-page',
-		linkId: 'resume-link'
-	}
-};
-
-function hashChange(hash)
-{
-	window.location.hash = hash;
-}
-
-function hashHandler()
-{
-	const hash = window.location.hash;
-	if (!router.hasOwnProperty(hash))
-		window.location.hash = '#/';
-	else
-	{
-		const pageId = router[hash].pageId;
-		Object.keys(router).map(key => router[key].pageId).forEach(id =>
-		{
-			const domElement = document.getElementById(id);
-			if (id === pageId)
-				domElement.style.display = 'block';
-			else
-				domElement.style.display = 'none';
-		});
-	}
-}
-
-function addEvents()
-{
-	Object.keys(router).forEach(hash =>
-	{
-		document.getElementById(router[hash].linkId).addEventListener('click', () => hashChange(hash));
-	});
-	document.getElementById("othello-reset").addEventListener('click', resetGame);
-}
-
-window.addEventListener("hashchange", hashHandler, false);
-window.addEventListener("DOMContentLoaded", () =>
-{
-	addEvents();
-	hashHandler();
-	resetGame();
-}, false);
-
-
-function resetGame()
-{
-	blackPieces = [];
-	whitePieces = [];
-	for(let i = 0; i < 64; ++i)
-	{
-		blackPieces[i] = false;
-		whitePieces[i] = false;
-	}
-	blackPieces[27] = true;
-	blackPieces[36] = true;
-	whitePieces[28] = true;
-	whitePieces[35] = true;
-	state = 0;
-	legalMoves = getWhiteLegalMoves(blackPieces, whitePieces);
-	syncBoard();
-}
-
-function syncBoard()
-{
-	let blackCount = 0;
-	let whiteCount = 0;
-	for(let i = 0; i < 64; ++i)
-	{
-		if(blackPieces[i])
-		{
-			document.getElementById("cell-" + i).className = "space occupied black";
-			document.getElementById("cell-" + i).onclick = function(e) {};
-			++blackCount;
-		}
-		else if(whitePieces[i])
-		{
-			document.getElementById("cell-" + i).className = "space occupied white";
-			document.getElementById("cell-" + i).onclick = function(e) {};
-			++whiteCount;
-		}
-		else if(legalMoves[i] && state == 0)
-		{
-			document.getElementById("cell-" + i).className = "space legal-move";
-			document.getElementById("cell-" + i).onclick = function(e)
-			{
-				makeWhiteMove(i, blackPieces, whitePieces);
-				legalMoves = getBlackLegalMoves(blackPieces, whitePieces);
-				if(legalMoves.every(x => !x))
-				{
-					legalMoves = getWhiteLegalMoves(blackPieces, whitePieces);
-					if(legalMoves.every(x => !x))
-						state = 2;
-				}
-				else
-				{
-					state = 1;
-					setTimeout(botMove, 400);
-				}
-				syncBoard();
-			};
-		}
-		else
-		{
-			document.getElementById("cell-" + i).className = "space";
-			document.getElementById("cell-" + i).onclick = function(e) {};
-		}
-	}
-	document.getElementById("black-counter").innerHTML = "Black: " + blackCount;
-	document.getElementById("white-counter").innerHTML = "White: " + whiteCount;
-	if(state == 0)
-		document.getElementById("state-text").innerHTML = "Your move";
-	else if(state == 1)
-		document.getElementById("state-text").innerHTML = "Thinking...";
-	else if(state == 2 && blackCount > whiteCount)
-		document.getElementById("state-text").innerHTML = "You lose!";
-	else if(state == 2 && blackCount < whiteCount)
-		document.getElementById("state-text").innerHTML = "You win!";
-	else if(state == 2 && blackCount == whiteCount)
-		document.getElementById("state-text").innerHTML = "Tie game!";
-}
-
-function botMove()
-{
-	computeBlackMove();
-	legalMoves = getWhiteLegalMoves(blackPieces, whitePieces);
-	if(legalMoves.every(x => !x))
-	{
-		legalMoves = getBlackLegalMoves(blackPieces, whitePieces);
-		if(legalMoves.every(x => !x))
-			state = 2;
-		else
-			setTimeout(botMove, 400);
-	}
-	else
-		state = 0;
-	syncBoard();
-}
 
 function getWhiteLegalMoves(blackBoard, whiteBoard)
 {
@@ -345,6 +185,181 @@ function makeBlackMove(position, blackBoard, whiteBoard)
 	}
 }
 
+module.exports = {getBlackLegalMoves, getWhiteLegalMoves, makeBlackMove, makeWhiteMove};
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+const boardFunctions = __webpack_require__(0);
+const computeBlackMove = __webpack_require__(2);
+
+const router =
+{
+	'#/':
+	{
+		pageId: 'about-page',
+		linkId: 'about-link'
+	},
+	'#/othello':
+	{
+		pageId: 'othello-page',
+		linkId: 'othello-link'
+	},
+	'#/pokemon':
+	{
+		pageId: 'pokemon-page',
+		linkId: 'pokemon-link'
+	},
+	'#/resume':
+	{
+		pageId: 'resume-page',
+		linkId: 'resume-link'
+	}
+};
+
+function hashChange(hash)
+{
+	window.location.hash = hash;
+}
+
+function hashHandler()
+{
+	const hash = window.location.hash;
+	if (!router.hasOwnProperty(hash))
+		window.location.hash = '#/';
+	else
+	{
+		const pageId = router[hash].pageId;
+		Object.keys(router).map(key => router[key].pageId).forEach(id =>
+		{
+			const domElement = document.getElementById(id);
+			if (id === pageId)
+				domElement.style.display = 'block';
+			else
+				domElement.style.display = 'none';
+		});
+	}
+}
+
+function addEvents()
+{
+	Object.keys(router).forEach(hash =>
+	{
+		document.getElementById(router[hash].linkId).addEventListener('click', () => hashChange(hash));
+	});
+	document.getElementById("othello-reset").addEventListener('click', resetGame);
+}
+
+window.addEventListener("hashchange", hashHandler, false);
+window.addEventListener("DOMContentLoaded", () =>
+{
+	addEvents();
+	hashHandler();
+	resetGame();
+}, false);
+
+
+function resetGame()
+{
+	blackPieces = [];
+	whitePieces = [];
+	for(let i = 0; i < 64; ++i)
+	{
+		blackPieces[i] = false;
+		whitePieces[i] = false;
+	}
+	blackPieces[27] = true;
+	blackPieces[36] = true;
+	whitePieces[28] = true;
+	whitePieces[35] = true;
+	state = 0;
+	legalMoves = boardFunctions.getWhiteLegalMoves(blackPieces, whitePieces);
+	syncBoard();
+}
+
+function syncBoard()
+{
+	let blackCount = 0;
+	let whiteCount = 0;
+	for(let i = 0; i < 64; ++i)
+	{
+		if(blackPieces[i])
+		{
+			document.getElementById("cell-" + i).className = "space occupied black";
+			document.getElementById("cell-" + i).onclick = function(e) {};
+			++blackCount;
+		}
+		else if(whitePieces[i])
+		{
+			document.getElementById("cell-" + i).className = "space occupied white";
+			document.getElementById("cell-" + i).onclick = function(e) {};
+			++whiteCount;
+		}
+		else if(legalMoves[i] && state == 0)
+		{
+			document.getElementById("cell-" + i).className = "space legal-move";
+			document.getElementById("cell-" + i).onclick = function(e)
+			{
+				boardFunctions.makeWhiteMove(i, blackPieces, whitePieces);
+				legalMoves = boardFunctions.getBlackLegalMoves(blackPieces, whitePieces);
+				if(legalMoves.every(x => !x))
+				{
+					legalMoves = boardFunctions.getWhiteLegalMoves(blackPieces, whitePieces);
+					if(legalMoves.every(x => !x))
+						state = 2;
+				}
+				else
+				{
+					state = 1;
+					setTimeout(botMove, 400);
+				}
+				syncBoard();
+			};
+		}
+		else
+		{
+			document.getElementById("cell-" + i).className = "space";
+			document.getElementById("cell-" + i).onclick = function(e) {};
+		}
+	}
+	document.getElementById("black-counter").innerHTML = "Black: " + blackCount;
+	document.getElementById("white-counter").innerHTML = "White: " + whiteCount;
+	if(state == 0)
+		document.getElementById("state-text").innerHTML = "Your move";
+	else if(state == 1)
+		document.getElementById("state-text").innerHTML = "Thinking...";
+	else if(state == 2 && blackCount > whiteCount)
+		document.getElementById("state-text").innerHTML = "You lose!";
+	else if(state == 2 && blackCount < whiteCount)
+		document.getElementById("state-text").innerHTML = "You win!";
+	else if(state == 2 && blackCount == whiteCount)
+		document.getElementById("state-text").innerHTML = "Tie game!";
+}
+
+function botMove()
+{
+	computeBlackMove();
+	legalMoves = boardFunctions.getWhiteLegalMoves(blackPieces, whitePieces);
+	if(legalMoves.every(x => !x))
+	{
+		legalMoves = boardFunctions.getBlackLegalMoves(blackPieces, whitePieces);
+		if(legalMoves.every(x => !x))
+			state = 2;
+		else
+			setTimeout(botMove, 400);
+	}
+	else
+		state = 0;
+	syncBoard();
+}
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+const boardFunctions = __webpack_require__(0);
+
 function computeBlackMove()
 {
 	let bestValue = Number.NEGATIVE_INFINITY;
@@ -358,8 +373,8 @@ function computeBlackMove()
 		{
 			newBlackBoard = blackPieces.slice();
 			newWhiteBoard = whitePieces.slice();
-			makeBlackMove(move, newBlackBoard, newWhiteBoard);
-			value = valueStateWhite(11, newBlackBoard, newWhiteBoard, alpha, beta);
+			boardFunctions.makeBlackMove(move, newBlackBoard, newWhiteBoard);
+			value = valueStateWhite(10, newBlackBoard, newWhiteBoard, alpha, beta);
 			if(value > bestValue)
 			{
 				alpha = value;
@@ -370,7 +385,7 @@ function computeBlackMove()
 				break;
 		}
 	}
-	makeBlackMove(bestMove, blackPieces, whitePieces);
+	boardFunctions.makeBlackMove(bestMove, blackPieces, whitePieces);
 	console.log(bestValue);
 }
 
@@ -378,10 +393,10 @@ function valueStateBlack(evaluationDepth, blackBoard, whiteBoard, alpha, beta)
 {
 	if(evaluationDepth == 0)
 		return terminalEvaluation(blackBoard, whiteBoard);
-	newLegalMoves = getBlackLegalMoves(blackBoard, whiteBoard);
+	let newLegalMoves = boardFunctions.getBlackLegalMoves(blackBoard, whiteBoard);
 	if(newLegalMoves.every(x => !x))
 	{
-		if(getWhiteLegalMoves(blackBoard, whiteBoard).every(x => !x))
+		if(boardFunctions.getWhiteLegalMoves(blackBoard, whiteBoard).every(x => !x))
 			return terminalEvaluation(blackBoard, whiteBoard);
 		else
 			return valueStateWhite(evaluationDepth, blackBoard, whiteBoard, alpha, beta);
@@ -394,7 +409,7 @@ function valueStateBlack(evaluationDepth, blackBoard, whiteBoard, alpha, beta)
 		{
 			newBlackBoard = blackBoard.slice();
 			newWhiteBoard = whiteBoard.slice();
-			makeBlackMove(move, newBlackBoard, newWhiteBoard);
+			boardFunctions.makeBlackMove(move, newBlackBoard, newWhiteBoard);
 			value = Math.max(value, valueStateWhite(evaluationDepth - 1, newBlackBoard, newWhiteBoard, alpha, beta));	
 			alpha = Math.max(alpha, value);
 			if(beta <= alpha)
@@ -408,10 +423,10 @@ function valueStateWhite(evaluationDepth, blackBoard, whiteBoard, alpha, beta)
 {
 	if(evaluationDepth == 0)
 		return terminalEvaluation(blackBoard, whiteBoard);
-	newLegalMoves = getWhiteLegalMoves(blackBoard, whiteBoard);
+	let newLegalMoves = boardFunctions.getWhiteLegalMoves(blackBoard, whiteBoard);
 	if(newLegalMoves.every(x => !x))
 	{
-		if(getBlackLegalMoves(blackBoard, whiteBoard).every(x => !x))
+		if(boardFunctions.getBlackLegalMoves(blackBoard, whiteBoard).every(x => !x))
 			return terminalEvaluation(blackBoard, whiteBoard);
 		else
 			return valueStateBlack(evaluationDepth, blackBoard, whiteBoard, alpha, beta);
@@ -424,7 +439,7 @@ function valueStateWhite(evaluationDepth, blackBoard, whiteBoard, alpha, beta)
 		{
 			newBlackBoard = blackBoard.slice();
 			newWhiteBoard = whiteBoard.slice();
-			makeWhiteMove(move, newBlackBoard, newWhiteBoard);
+			boardFunctions.makeWhiteMove(move, newBlackBoard, newWhiteBoard);
 			value = Math.min(value, valueStateBlack(evaluationDepth - 1, newBlackBoard, newWhiteBoard, alpha, beta));
 			beta = Math.min(beta, value);
 			if(beta <= alpha)
@@ -453,6 +468,8 @@ function terminalEvaluation(blackBoard, whiteBoard)
 		return count;
 	}
 }
+
+module.exports = computeBlackMove
 
 /***/ })
 /******/ ]);

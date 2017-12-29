@@ -1,22 +1,5 @@
-body
-{
-	background: #000 url("https://s14.postimg.org/lepw639o1/Background.jpg") no-repeat center top;
-	background-size: cover;
-	height: 100vh;
-	min-height: 100vh;
-	margin: 0;
-	overflow: hidden;
-}
-
 @import "navigation";
 @import "content";
 @import "othello";
 @import "pokemon";
-
-.resume-object
-{
-	display: block;
-	width: 96%;
-	height: 1075px;
-	margin: auto;
-}
+@import "resume";
