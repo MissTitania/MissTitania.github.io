@@ -1,3 +1,5 @@
+const precompString = require("./SubgamePrecomps.txt");
+const neuralCoefficientString = require("./NeuralCoefficients.txt");
 const boardFunctions = require("./boardFunctions");
 const computeBlackMove = require("./AI");
 
@@ -63,9 +65,26 @@ window.addEventListener("DOMContentLoaded", () =>
 {
 	addEvents();
 	hashHandler();
+	loadGameAssets();
 	resetGame();
 }, false);
 
+function loadGameAssets()
+{
+	precomps = [];
+	let lines = precompString.split("\n");
+	for(let k = 0; k < lines.length - 1; ++k)
+	{
+		let stringValues = lines[k].split(",");
+		let numValues = [];
+		for(let j = 0; j < stringValues.length - 1; ++j)
+			numValues[j] = parseInt(stringValues[j]);
+		precomps[k] = numValues;
+	}
+	neuralCoefficients = neuralCoefficientString.split(",");
+	for(let k = 0; k < neuralCoefficients.length; ++k)
+		neuralCoefficients[k] = parseFloat(neuralCoefficients[k]);
+}
 
 function resetGame()
 {
