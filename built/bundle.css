@@ -1,245 +1,73 @@
-body {
-  background: #000 url("https://s14.postimg.org/lepw639o1/Background.jpg") no-repeat center top;
-  background-size: cover;
-  height: 100vh;
-  min-height: 100vh;
-  margin: 0;
-  overflow: hidden; }
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, {
+/******/ 				configurable: false,
+/******/ 				enumerable: true,
+/******/ 				get: getter
+/******/ 			});
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ (function(module, exports) {
 
-#top-bar {
-  height: 10vh;
-  min-height: 10vh; }
+throw new Error("Module build failed: ModuleParseError: Module parse failed: Unexpected character '�' (1:0)\nYou may need an appropriate loader to handle this file type.\n(Source code omitted for this binary file)\n    at doBuild (/Users/titania/Documents/MissTitania.github.io/node_modules/webpack/lib/NormalModule.js:303:19)\n    at runLoaders (/Users/titania/Documents/MissTitania.github.io/node_modules/webpack/lib/NormalModule.js:209:11)\n    at /Users/titania/Documents/MissTitania.github.io/node_modules/loader-runner/lib/LoaderRunner.js:370:3\n    at iterateNormalLoaders (/Users/titania/Documents/MissTitania.github.io/node_modules/loader-runner/lib/LoaderRunner.js:211:10)\n    at /Users/titania/Documents/MissTitania.github.io/node_modules/loader-runner/lib/LoaderRunner.js:202:4\n    at /Users/titania/Documents/MissTitania.github.io/node_modules/enhanced-resolve/lib/CachedInputFileSystem.js:70:14\n    at process._tickCallback (internal/process/next_tick.js:61:11)");
 
-#site-logo {
-  transition: background-position .15s linear;
-  background: url("https://image.ibb.co/gqsDWb/Site_Logo.png") no-repeat;
-  background-size: cover;
-  background-position: 0 5%;
-  height: 10vh;
-  width: 60vh;
-  overflow: hidden;
-  float: left; }
-
-#site-logo:hover {
-  background-position: 0 110%;
-  cursor: pointer; }
-
-.nav {
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
-  height: 10vh; }
-
-.nav-link {
-  transition: all .3s;
-  padding: 12px;
-  border-top: 2px solid #43A3F7;
-  border-right: 2px solid #43A3F7;
-  border-left: 2px solid #43A3F7;
-  border-bottom: none;
-  border-radius: 10px 10px 0 0;
-  text-align: center;
-  background: #201E1E;
-  text-shadow: 0 0 2px #000;
-  box-shadow: 0 0 2px #000;
-  font-weight: 100;
-  letter-spacing: 0;
-  color: #43A3F7;
-  flex: 0 1 85px; }
-
-.nav-link:hover {
-  cursor: pointer;
-  background: rgba(32, 30, 30, 0);
-  border-color: rgba(67, 163, 247, 0);
-  box-shadow: 0 0 0 #000;
-  font-weight: 900;
-  letter-spacing: 2px;
-  color: #E1F6FD; }
-
-#content {
-  display: flex;
-  width: 100%;
-  height: 90vh;
-  min-height: 90vh; }
-
-#me-picture {
-  border-top: 3px solid #000;
-  background: #07F url("https://s14.postimg.org/eygxghtk1/image.jpg") no-repeat center;
-  background-size: cover;
-  flex: 0 0 68vh; }
-
-.about,
-.othello,
-.pokemon,
-.resume {
-  padding: 10px;
-  border-top: 3px solid #000;
-  border-left: 3px solid #000;
-  background: rgba(0, 0, 0, 0.55);
-  color: #FFF;
-  flex: 1 1 65%;
-  overflow: auto; }
-
-p {
-  font-size: 17px;
-  text-align: justify;
-  text-justify: inter-word; }
-
-p a {
-  transition: color .2s;
-  text-decoration: none;
-  color: #4D88ff; }
-
-p a:hover {
-  transition: color .3s;
-  color: #003BFF; }
-
-#othello-game {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 74vh;
-  margin: 5px 12px 5px 5px;
-  float: left; }
-
-#othello-board {
-  width: 74vh;
-  height: 74vh;
-  margin: 4px 0;
-  box-sizing: border-box;
-  border: 2px solid #000;
-  overflow: hidden;
-  background: #0B0 url("https://s14.postimg.org/z2ofrjrxd/Othello_Board.jpg") no-repeat center;
-  background-size: cover; }
-
-.space {
-  transition: background-color ease-out .32s;
-  width: 12.5%;
-  height: 12.5%;
-  box-sizing: border-box;
-  border: 2px solid #000;
-  background-color: rgba(0, 170, 255, 0);
-  float: left;
-  transform-style: preserve-3d; }
-
-.space.legal-move:hover {
-  transition: background-color ease-in .32s;
-  background-color: rgba(0, 170, 255, 0.85);
-  cursor: pointer; }
-
-.space.occupied:before,
-.space.occupied:after {
-  transition: transform .3s linear;
-  content: "";
-  display: block;
-  width: 90%;
-  height: 90%;
-  margin-left: 5%;
-  backface-visibility: hidden; }
-
-.space.occupied:before {
-  background: url("https://s14.postimg.org/3mwtbtbkx/Black_Stone.png") no-repeat center;
-  background-size: cover;
-  margin-top: 5%; }
-
-.space.occupied:after {
-  background: url("https://s14.postimg.org/iivcjg501/White_Stone.png") no-repeat center;
-  background-size: cover;
-  margin-top: -90%; }
-
-.space.occupied.black:before {
-  transform: rotate3d(1, -1, 0, 0deg); }
-
-.space.occupied.white:before {
-  transform: rotate3d(1, -1, 0, 180deg); }
-
-.space.occupied.black:after {
-  transform: rotate3d(1, -1, 0, -180deg); }
-
-.space.occupied.white:after {
-  transform: rotate3d(1, -1, 0, 0deg); }
-
-#othello-reset {
-  transition: all .15s linear;
-  position: relative;
-  background: #201E1E;
-  border: 1px solid #00406D;
-  box-shadow: 1px 2px 6px #004677;
-  color: #43A3F7;
-  left: 0;
-  top: 0;
-  border-radius: 5px;
-  font-size: 14px;
-  outline: none; }
-
-#othello-reset:hover {
-  transition: all .2s linear;
-  background: #121111;
-  border: 1px solid #003D68;
-  box-shadow: -1px -1px 2px #0088E7;
-  color: #98CDFB;
-  left: 2px;
-  top: 3px;
-  cursor: pointer; }
-
-#othello-feedback {
-  display: flex;
-  justify-content: space-between; }
-
-#othello-feedback span {
-  font-size: 18px; }
-
-.before-after-box {
-  width: 100%;
-  display: flex;
-  justify-content: space-around; }
-
-.before-after-box:before {
-  content: "";
-  display: block;
-  padding-top: 34%; }
-
-.before-after-box div {
-  flex: 1 1 33%; }
-
-.before-after-box .arrow {
-  background: url("http://images.clipartpanda.com/arrow-clip-art-red-arrow-large.png") no-repeat center;
-  background-size: contain; }
-
-.before-after-box #before-1 {
-  background: url("https://s17.postimg.org/xdi2g2mm7/Before_1.png") no-repeat center;
-  background-size: contain; }
-
-.before-after-box #after-1 {
-  background: url("https://s17.postimg.org/4nv6jfqbz/After_1.png") no-repeat center;
-  background-size: contain; }
-
-.before-after-box #before-2 {
-  background: url("https://s17.postimg.org/db8dxvbzz/Before_2.png") no-repeat center;
-  background-size: contain; }
-
-.before-after-box #after-2 {
-  background: url("https://s17.postimg.org/43g5h6s33/After_2.png") no-repeat center;
-  background-size: contain; }
-
-.before-after-box #before-3 {
-  background: url("https://s17.postimg.org/eq9ymni8v/Before_3.png") no-repeat center;
-  background-size: contain; }
-
-.before-after-box #after-3 {
-  background: url("https://s17.postimg.org/keg9dkwvz/After_3.png") no-repeat center;
-  background-size: contain; }
-
-.before-after-box #before-4 {
-  background: url("https://s17.postimg.org/lthu2bden/Before_4.png") no-repeat center;
-  background-size: contain; }
-
-.before-after-box #after-4 {
-  background: url("https://s17.postimg.org/yyxc7uu9b/After_4.png") no-repeat center;
-  background-size: contain; }
-
-.resume-object {
-  display: block;
-  width: 96%;
-  height: 1100px;
-  margin: auto; }
+/***/ })
+/******/ ]);
