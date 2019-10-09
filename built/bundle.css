@@ -1,5 +1,5 @@
 body {
-  background: #000 url("https://s14.postimg.org/lepw639o1/Background.jpg") no-repeat center top;
+  background: #000 url("https://i.imgur.com/1pKSAv1.jpg") no-repeat center top;
   background-size: cover;
   height: 100vh;
   min-height: 100vh;
@@ -207,39 +207,39 @@ p a:hover {
   background-size: contain; }
 
 .before-after-box #before-1 {
-  background: url("https://s17.postimg.org/xdi2g2mm7/Before_1.png") no-repeat center;
+  background: url("https://i.imgur.com/uekAsJj.png") no-repeat center;
   background-size: contain; }
 
 .before-after-box #after-1 {
-  background: url("https://s17.postimg.org/4nv6jfqbz/After_1.png") no-repeat center;
+  background: url("https://i.imgur.com/V3UmGFU.png") no-repeat center;
   background-size: contain; }
 
 .before-after-box #before-2 {
-  background: url("https://s17.postimg.org/db8dxvbzz/Before_2.png") no-repeat center;
+  background: url("https://i.imgur.com/hOQ95lq.png") no-repeat center;
   background-size: contain; }
 
 .before-after-box #after-2 {
-  background: url("https://s17.postimg.org/43g5h6s33/After_2.png") no-repeat center;
+  background: url("https://i.imgur.com/ZzC7InI.png") no-repeat center;
   background-size: contain; }
 
 .before-after-box #before-3 {
-  background: url("https://s17.postimg.org/eq9ymni8v/Before_3.png") no-repeat center;
+  background: url("https://i.imgur.com/uHUdU3O.png") no-repeat center;
   background-size: contain; }
 
 .before-after-box #after-3 {
-  background: url("https://s17.postimg.org/keg9dkwvz/After_3.png") no-repeat center;
+  background: url("https://i.imgur.com/mrm9H6f.png") no-repeat center;
   background-size: contain; }
 
 .before-after-box #before-4 {
-  background: url("https://s17.postimg.org/lthu2bden/Before_4.png") no-repeat center;
+  background: url("https://i.imgur.com/gE5a9W1.png") no-repeat center;
   background-size: contain; }
 
 .before-after-box #after-4 {
-  background: url("https://s17.postimg.org/yyxc7uu9b/After_4.png") no-repeat center;
+  background: url("https://i.imgur.com/honTfR6.png") no-repeat center;
   background-size: contain; }
 
 .resume-object {
   display: block;
   width: 96%;
-  height: 1100px;
+  height: 100%;
   margin: auto; }
