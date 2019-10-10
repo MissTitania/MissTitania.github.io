@@ -69,8 +69,12 @@
 					<div id="othello-feedback"><span id="black-counter">Black:</span><span id="state-text">Your move</span><span id="white-counter">White:</span></div>
 				</div>
 				<p>This is an in-browser AI implementation for the classic game Othello.  If you haven't played before, I recommend you <a href="https://en.wikipedia.org/wiki/Reversi">start here</a> with the rules.</p>
-				<p>This AI runs a minimax search with alpha-beta pruning heuristics to find the most favorable obtainable position.  There's no transposition table because the collision rate in Othello is too low to be worthwhile.  Mid-game states are evaluated using a function pre-computed through neural networks on such features as differential of legal moves and the perfect-play results of sub-games of different board subsets.</p>
-				<p>The neural nets are coded and trained separately in Java to allow for blazing-fast computation with bitboard representations.  The technique stores boards as 2 64-bit integers (1 for each player) marking all piece positions with a 1 bit.  With some cleverness, this allows all relevant features like legal moves, flipped pieces, and board subsets to be calculated in extremely few clock cycles with basic bitwise operations and precomputed masks.</p>
+				<p>
+					Neural nets were implemented and trained in java. This AI runs a minimax search with alpha-beta pruning heuristics. There's no transposition table.  The collision rate in Othello is too low to be worthwhile. A pre-computed function evaluates mid-game board states. The differential of legal moves is one feature. Another feature is the perfect-play results of sub-games of different board subsets.
+				</p>
+				<p>
+					The technique stores boards as 2 64-bit integers (1 for each player) marking all piece positions with a 1 bit. This allows very fast computations with bitboard manipulations and pre-computed masks.
+				</p>
 			</div>
 
 			<div class="pokemon" id="pokemon-page">
