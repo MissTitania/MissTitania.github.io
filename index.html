@@ -78,20 +78,20 @@
 			</div>
 
 			<div class="pokemon" id="pokemon-page">
-				<p>The server of <a href="https://pokemonshowdown.com">Pokemon Showdown</a> (a community for competitively-minded Pokemon battling as a strategy game) called Azure desperately needed an interface remodeling.  This was for reasons of readability, aesthetics, and ease of use.  They hired me to remake their CSS for this purpose, but the catch was that esoteric rules in their license agreement with the larger Showdown community allow them only to modify server-side code.  They must use the same client as the rest of Pokemon Showdown verbatim, differing only by a style sheet modification.  So my task was to update to a more modern interface without modifying either the underlying JS code or the DOM.  The result contained a great deal of animation, both for a sleeker-looking product and intuitive identification of what things on screen were even control elements.  This means that for an authentic experience I would encourage you to try injecting <a href="https://github.com/MissTitania/AzureCSSOverhaul">the style sheets</a> yourself and see it all in action!  Still pictures can only tell so much sadly</p>
+				<p><a href="https://pokemonshowdown.com">Pokemon Showdown</a> is a program for playing Pokemon competitively. The Azure server hired me to remodel its interface. A catch is that I could only change the CSS.</p>
 				<p>For starters, PS is a battle-based entity, so let's cut right to the chase with the battle interface:</p>
 				<div class="before-after-box">
 					<div id="before-1"></div>
 					<div class="arrow"></div>
 					<div id="after-1"></div>
 				</div>
-				<p>Moving the team and name display sidebars up top creates a lot more space to show off all the actual battle!  The graphical space in the center is where all the attack, terrain, and weather animations play out, so playing that up easily improves the user experience.  But the biggest gain of all isn't even visible in the picture.  See that little notch at the bottom of the re-designed battlefield?  As moves are made, all of them get called out by trainers in speech bubbles right there.  Beforehand all these actions merely got dumped in a chat log elsewhere.  Surely one of the best ways to ruin a child's fun Pokemon experience is forcing them to scroll back through textual data dumps to see what's happening, so the change was very much overdo.  Next up is private conversations:</p>
+				<p>Moving the team and name display sidebars up top create a lot more space to show off all the actual battle! The attack, terrain, and weather animations play out in the center. The biggest gain of all isn't even visible in the picture.  See that little notch at the bottom of the re-designed battlefield?  As moves are made, they get called out by trainers in speech bubbles right there.  Beforehand all these actions merely got dumped in a chat log elsewhere. Next up is private conversations:</p>
 				<div class="before-after-box">
 					<div id="before-2"></div>
 					<div class="arrow"></div>
 					<div id="after-2"></div>
 				</div>
-				<p>As you can see, even short conversations few in number quickly overwhelm the space allocated for them.  That main menu on the left doesn't do a whole lot except for when you're queueing up or configuring your team for battle; it just eats up direct message space.  Given that, it makes sense to have it be retractable.  Then we can have luxurious wide conversations and battle challenges.  And the new direct message boxes offer a lot of smart benefits, from subtley brightening to display when you have notifications to more intelligent vertical sizing rules and minimization to allow as many of these conversations at once as is feasible.</p>
+				<p>Even a few short conversations quickly overwhelm the space allocated for them.  Usually, the main menu on the left doesn't do a whole lot. It just eats up direct message space.  Given that, it makes sense to have it be retractable.  Then we can have luxurious wide conversations and battle challenges. We want to support as many conversations as possible. We can achieve this using brightness and intelligent vertical sizing. </p>
 				<div class="before-after-box">
 					<div id="before-3"></div>
 					<div class="arrow"></div>
