@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 	<head>
-		<title>Titania's Website</title>
+		<title>Titania: Software Engineer</title>
 		<link rel="stylesheet" href="./built/bundle.css">
 		<script type="text/javascript" src="./built/bundle.js"></script>
 
@@ -36,20 +36,22 @@
 
 			<div class="about" id="about-page">
 				<p>
-				Hey, I'm Titania. My main interests are data analysis, web development, and information theory. I have the most experience coding in Python and Java. You can browse this site to check out a couple of my coding projects!
+				I'm Titania, a Berkeley programmer who studied computer science at Caltech.  My coding experience is primarily with Java and Python.  Various interests include machine learning/AI, web development, and information theory.  You can browse this site to check out a couple of my coding projects!
 				</p>
 				<p>
-				I love Bridge since high school. I actually played on the USA's international team in 2011. I also worked on bridge bidding AI. This is a hard problem because of imperfect information and a very large game tree. My algorithm used recursive Monte Carlo simulation. A double-dummy solver rated outcomes. To this day programs are inadequate for top-level competition. The result was powerful enough to defeat random Bridge Base Online opponents!
+				Some older undertakings don't appear here.  In high school I worked on a bridge bidding AI.  That's always been a challenging problem for computers.  Traditional approaches aren't well-equipped to handle several oddities: imperfect information, cooperative agents, and a titanic game-space.  To this day, programs are inadequate for moderate-level competition.  My algorithm broaches these with Monte Carlo simulation.  The main hurdle is to foresee potential outcomes from both teammates' limited perspectives.   I achieved this by drawing new hand samples for auction look-aheads at every node of the search tree.  Then expectation evaluation can occur at each depth in a way that remains independent from that sub-tree's progenitor sample.  This corrects for agents assuming others will interpret claims with the same confidence level that they do.  Terminal outcomes were rated with a double-dummy solver that I implemented.  The result was powerful enough to consistently defeat random Bridge Base Online opponents!
 				</p>
 				<p>
-				I also competed in the  <a href="https://en.wikipedia.org/wiki/Netflix_Prize">Netflix Contest</a>. I used stochastic gradient descent with feature extraction and k-fold cross-validation. I outperformed Netflix's old algorithm but did not win the contest.
+				I also made attempts in the  <a href="https://en.wikipedia.org/wiki/Netflix_Prize">Netflix Contest</a> and followed related published papers.  Methods were all rooted in stochastic gradient descent among extracted feature vectors.  I employed k-fold cross-valuation, baseline bias corrections, and regression synthesis with other models.  While I did significantly out-perform Netflix's software, I fell just short of requisite performance gains to win.
 				</p>
 				<p>
-				I have a strong math background. I taught high school, including at Thomas Jefferson. For fun, I play games of all varieties, be it board, strategy, card, video, tabletop, or sports. Among others, I have competed in volleyball, fencing, Magic the gathering.
+				I have a strong math background.  In fact, previously in a public high school I taught it!  I found it personally rewarding to restructure ideas to make new information intuitive.  The whole experience was definitely a great developer for my communication skills.
 				</p>
-
 				<p>
-				Contact: <a href="mailto@titania@emmons.mobi">titania@emmons.mobi</a>
+				For fun I play games of all varieties, be it board, strategy, card, video, tabletop, or sports.  The only essential divide between games and life is that games tell in objective terms how to win.  In a lot of ways, it can be invigorating to apply this to life and 'play to win' at optimization tasks.  Many games I undertook competitively.  Most notable was bridge; I was on the US Bridge Federation international team in 2011 and formerly played for hire.  Others include Pokemon, volleyball, fencing, and Magic: the Gathering.  For multiple strategy publications by <a href="http://sirlingames.com">Sirlin Games</a> I was even named world champion.
+				</p>
+				<p>
+				If desired, you can contact me at: <a href="mailto@titania@emmons.mobi">titania@emmons.mobi</a>
 				</p>
 			</div>
 
@@ -68,47 +70,45 @@
 					</div>
 					<div id="othello-feedback"><span id="black-counter">Black:</span><span id="state-text">Your move</span><span id="white-counter">White:</span></div>
 				</div>
-				<p>This is an in-browser AI implementation for the classic game Othello.  If you haven't played before, I recommend you <a href="https://en.wikipedia.org/wiki/Reversi">start here</a> with the rules.</p>
 				<p>
-					Neural nets were implemented and trained in java. This AI runs a minimax search with alpha-beta pruning heuristics. There's no transposition table.  The collision rate in Othello is too low to be worthwhile. A pre-computed function evaluates mid-game board states. The differential of legal moves is one feature. Another feature is the perfect-play results of sub-games of different board subsets.
+				This is an in-browser AI implementation for the classic game Othello.  If you haven't played before, I recommend you <a href="https://en.wikipedia.org/wiki/Reversi">start here</a> with the rules.
 				</p>
 				<p>
-					The technique stores boards as 2 64-bit integers (1 for each player) marking all piece positions with a 1 bit. This allows very fast computations with bitboard manipulations and pre-computed masks.
+				This AI finds the best obtainable position by minimax search and alpha-beta pruning.  Notably absent is a transposition table; the collision rate in Othello is too low to be worth the overhead.  Mid-game states are evaluated using a function pre-computed through neural networks.  Through self-play, these train coefficients for perfect-play results of all rectangular board sub-games.
+				</p>
+				<p>
+				The neural nets are coded and trained separately in Java.  This allows a powerful numerical computation technique Javascript prohibits: bitboard representations.  The technique stores boards as 2 64-bit integers (1 for each player) marking all piece positions with a 1 bit.  With some cleverness, this allows calculation of all relevant features in extremely few clock cycles.  Bitwise operations and precomputed masks yield board subsets, legal moves, and flipped pieces.
 				</p>
 			</div>
 
 			<div class="pokemon" id="pokemon-page">
-				<p><a href="https://pokemonshowdown.com">Pokemon Showdown</a> is a program for playing Pokemon competitively. The Azure server hired me to remodel its interface. A catch is that I could only change the CSS.</p>
+				<p><a href="https://pokemonshowdown.com">Pokemon Showdown</a> is a community for competitively-minded Pokemon battling as a strategy game.  The Azure server had readability, aesthetics, and ease of use problems and desperately required an interface remodel.  To that end they hired me to remake their CSS, but with a catch!  Esoteric community license agreement rules only allowed them to modify server-side code.  They must use the verbatim same client as the rest of the community, differing only by a style sheet.  So my task was to modernize the interface without access to the underlying Javascript or DOM.  The result contained a great deal of animation for both a sleek-looking product and intuitive control element identification.  This means that for an authentic experience I would encourage you to try injecting the <a href="https://github.com/MissTitania/AzureCSSOverhaul">style sheets</a> yourself and see it in action!  Still pictures can only tell so much.</p>
 				<p>For starters, PS is a battle-based entity, so let's cut right to the chase with the battle interface:</p>
 				<div class="before-after-box">
 					<div id="before-1"></div>
 					<div class="arrow"></div>
 					<div id="after-1"></div>
 				</div>
-				<p>Moving the team and name display sidebars up top create a lot more space to show off all the actual battle! The attack, terrain, and weather animations play out in the center. The biggest gain of all isn't even visible in the picture.  See that little notch at the bottom of the re-designed battlefield?  As moves are made, they get called out by trainers in speech bubbles right there.  Beforehand all these actions merely got dumped in a chat log elsewhere. Next up is private conversations:</p>
+				<p>Moving the team and name display sidebars up top creates a lot more space to show off the actual battle!  The graphical space in the center is where all the animations play out, so space there is at a premium.  But the biggest gain of all isn't visible in a still picture.  See that little notch at the bottom of the re-designed battlefield?  As moves are made, now they're called out by player sprites in speech bubbles right there.  Beforehand all these actions were merely dumped elsewhere in a chat log.  Surely one of the best ways to ruin a child's fun is forcing them to scroll through textual data dumps, so the change was very much overdo.  Next up is private conversations:</p>
 				<div class="before-after-box">
 					<div id="before-2"></div>
 					<div class="arrow"></div>
 					<div id="after-2"></div>
 				</div>
-				<p>Even a few short conversations quickly overwhelm the space allocated for them.  Usually, the main menu on the left doesn't do a whole lot. It just eats up direct message space.  Given that, it makes sense to have it be retractable.  Then we can have luxurious wide conversations and battle challenges. We want to support as many conversations as possible. We can achieve this using brightness and intelligent vertical sizing. </p>
+				<p>Even a few short conversations quickly overwhelm the space they're allocated.  Only very intermittently does that menu on the left do anything; by and large it just eats up direct message space.  Given that, it makes sense to have it be retractable.  Then we can have luxurious wide conversations and battle challenges.  And the new direct message boxes offer smart benefits: subtley brightening to display notifications, more intelligent vertical sizing, and minimization.  It's all aimed at allowing as many of these simultaneous conversations as possible!</p>
 				<div class="before-after-box">
 					<div id="before-3"></div>
 					<div class="arrow"></div>
 					<div id="after-3"></div>
 				</div>
-				<p>Here's what that main menu looks like when we slide it out. It centers properly. We created extra space by sliding over inactive conversations. Now the menu can come out further than before. The menu is now one menu instead of three. Battle options are now adorned with animations. The activity and hype should align with the intended purpose!</p>
+				<p>Here's what that main menu looks like when slid out.  It now centers properly, and comes out further than before for larger print.  And perhaps the most overdo: the main menu is finally condensed into <i>just one</i> menu.  Instead of three.  Why those similarly-purposed features were broken up before is hard to figure.  And because it's a server for battling, now the battle options are adorned with slick animations and flashy mouseover icons.  After all, user activity and hype ought to align with intended purpose!</p>
 				<div class="before-after-box">
 					<div id="before-4"></div>
 					<div class="arrow"></div>
 					<div id="after-4"></div>
 				</div>
-				<p>
-					Here's a public chatroom. Conversations were punctuated with various polls, server declarations, tournament updates, and more. We can make these less obtrusive with reformatting and better use of opacity. As a bonus, now we can see the server mascot. We darkened the color scheme and only used bright colors for important content.
-				</p>
-				<p>
-					Remember all changes had to be achieved through CSS.
-				</p>
+				<p>Here's a public chatroom.  Before, conversations were punctuated with various polls, server declarations, tournament updates, and more.  These can be made much less obtrusive with some reformatting and better opacity use.  As a bonus, now we can see the server mascot without so much junk on top!  Overall, darkening the color scheme and reserving bright colors for important content helps highlight important information.</p>
+				<p>I do encourage you to check it out by injecting the CSS yourself!  Seeing and using all the components makes for an experience still images cannot.  If you do, don't forget it all happened without changing any code!  Everything's achieved solely through style sheets.</p>
 			</div>
 
 			<div class="resume" id="resume-page">
