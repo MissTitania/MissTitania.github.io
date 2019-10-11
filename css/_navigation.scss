@@ -14,23 +14,23 @@ body
 	min-height: 10vh;
 }
 
-#site-logo
-{
-	transition: background-position .15s linear;
-	background: url("https://image.ibb.co/gqsDWb/Site_Logo.png") no-repeat;
-	background-size: cover;
-	background-position: 0 5%;
-	height: 10vh;
-	width: 60vh;
-	overflow: hidden;
-	float: left;
-}
-
-#site-logo:hover
-{
-	background-position: 0 110%;
-	cursor: pointer;
-}
+// #site-logo
+// {
+// 	transition: background-position .15s linear;
+// 	background: url("https://image.ibb.co/gqsDWb/Site_Logo.png") no-repeat;
+// 	background-size: cover;
+// 	background-position: 0 5%;
+// 	height: 10vh;
+// 	width: 60vh;
+// 	overflow: hidden;
+// 	float: left;
+// }
+//
+// #site-logo:hover
+// {
+// 	background-position: 0 110%;
+// 	cursor: pointer;
+// }
 
 .nav
 {
@@ -42,7 +42,7 @@ body
 
 .nav-link
 {
-	transition: all .3s;
+	transition: all .2s;
 	padding: 12px;
 	border-top: 2px solid #43A3F7;
 	border-right: 2px solid #43A3F7;
@@ -62,10 +62,11 @@ body
 .nav-link:hover
 {
 	cursor: pointer;
-	background: rgba(32, 30, 30, 0);
-	border-color: rgba(67, 163, 247, 0);
 	box-shadow: 0 0 0 #000;
-	font-weight: 900;
-	letter-spacing: 2px;
+	border-top: 2px solid #92C9FA;
+	border-right: 2px solid #92C9FA;
+	border-left: 2px solid #92C9FA;
+	border-bottom: none;
+	// font-weight: 900;
 	color: #E1F6FD;
 }
